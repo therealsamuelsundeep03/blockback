@@ -5,7 +5,7 @@ const controller = require("../controller/blogs");
 router.post("/", controller.addBlogs);
 router.get("/", controller.getBlogs);
 router.get("/:user", controller.myBlogs);
-router.get("/:user/:blog", controller.getBlog);
+router.get("/blog/:blog", controller.getBlog);
 router.put("/:user/:blog", controller.editBlog);
 router.delete("/:user/:blog", controller.deleteBlog);
 
