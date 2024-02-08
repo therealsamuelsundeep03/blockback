@@ -118,11 +118,11 @@ const controller = {
           .status(400)
           .json({ error: "Please login again", status: false });
 
-      let result = await userDB.findOne({
+      let user = await userDB.findOne({
         "blogs._id": blog,
       });
-      result = result.blogs.find((b) => b._id.toString() === blog);
-      res.status(200).json({ blog: result, status: true });
+      let result = user.blogs.find((b) => b._id.toString() === blog);
+      res.status(200).json({ blog: result, username: user.userName, status: true });
     } catch (error) {
       console.log(error);
       res.status(500).json({ error, status: false });
